@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products</title>
+</head>
+<body>
+  <h1>Shop</h1>
+
+  <div>
+    <p>Apple - $1</p>
+    <button onclick="addToCart('Apple', 1)">Add to Cart</button>
+  </div>
+  <div>
+    <p>Banana - $2</p>
+    <button onclick="addToCart('Banana', 2)">Add to Cart</button>
+  </div>
+
+  <a href="cart.html">🛒 Go to Cart</a>
+
+  <script>
+    function addToCart(name, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+  </script>
+</body>
+</html>
